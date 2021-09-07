@@ -1,5 +1,5 @@
 
-from quicksort import quicksort
+from sort.quicksort import quicksort
 from bisect import bisect_left
 
 
