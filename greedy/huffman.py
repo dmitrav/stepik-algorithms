@@ -14,7 +14,7 @@ class Leaf(namedtuple("Leaf", ['char'])):
         code[self.char] = acc or '0'
 
 
-def huffman_encode(s):
+def  huffman_encode(s):
 
     h = []
     for ch, freq in Counter(s).items():
@@ -77,5 +77,6 @@ def read_and_decode():
 
 if __name__ == "__main__":
 
-    read_and_decode()
+    read_and_encode()
+    # read_and_decode()
 

@@ -29,6 +29,46 @@ def get_max_subseq(seq):
     return len(indices), indices
 
 
+def get_max_subseq_2(seq):
+    """ With binary search. """
+
+    n = len(seq)
+    L = [1000] + [-1000] * (n+1)
+    prev = []
+    for i in range(n):
+
+        left = 0
+        right = n+1
+        # binary search
+        while left+1 < right:
+            middle = (left + right) // 2
+            if L[middle] >= seq[i]:
+                left = middle
+            else:
+                right = middle
+        L[right] = seq[i]
+        prev.append((right, i, seq[i]))
+
+    # print(L)
+    # print(prev)
+
+    i = n + 1
+    # find the max length
+    while L[i] == -1000:
+        i -= 1
+
+    ans = []
+    j = len(prev)-1
+    # starting from previously found i
+    while j >= 0:
+        if prev[j][0] == i:
+            ans.append(prev[j][1]+1)
+            i -= 1
+        j -= 1
+
+    return ans
+
+
 def print_(size, indices):
     """ Print the size and the indices in the ascending order (as they are found in the descending order). """
 
@@ -42,5 +82,9 @@ def print_(size, indices):
 if __name__ == "__main__":
 
     seq = read_seq()
-    size, indices = get_max_subseq(seq)
-    print_(size, indices)
+    subseq = get_max_subseq_2(seq)
+
+    print(len(subseq))
+    for i in reversed(range(len(subseq))):
+        print(subseq[i], end=' ')
+
