@@ -1,27 +1,27 @@
 
 
-def in_order_traversal(root, tree):
-    if root[1] > 0:
-        in_order_traversal(tree[root[1]], tree)
-    print(root[0], end=' ')
-    if root[2] > 0:
-        in_order_traversal(tree[root[2]], tree)
+def in_order_traversal(node, tree):
+    if node[1] > 0:
+        in_order_traversal(tree[node[1]], tree)
+    print(node[0], end=' ')  # visit
+    if node[2] > 0:
+        in_order_traversal(tree[node[2]], tree)
 
 
-def pre_order_traversal(root, tree):
-    print(root[0], end=' ')
-    if root[1] > 0:
-        pre_order_traversal(tree[root[1]], tree)
-    if root[2] > 0:
-        pre_order_traversal(tree[root[2]], tree)
+def pre_order_traversal(node, tree):
+    print(node[0], end=' ')  # visit
+    if node[1] > 0:
+        pre_order_traversal(tree[node[1]], tree)
+    if node[2] > 0:
+        pre_order_traversal(tree[node[2]], tree)
 
 
-def post_order_traversal(root, tree):
-    if root[1] > 0:
-        post_order_traversal(tree[root[1]], tree)
-    if root[2] > 0:
-        post_order_traversal(tree[root[2]], tree)
-    print(root[0], end=' ')
+def post_order_traversal(node, tree):
+    if node[1] > 0:
+        post_order_traversal(tree[node[1]], tree)
+    if node[2] > 0:
+        post_order_traversal(tree[node[2]], tree)
+    print(node[0], end=' ')  # visit
 
 
 if __name__ == '__main__':

@@ -2,6 +2,7 @@
 
 """ Disjoint sets """
 
+
 def find(i, parents):
     while i != parents[i]:
         # parents[i] = find(parents[i], parents)  # supposedly, shortening paths
